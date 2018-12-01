@@ -6,7 +6,7 @@ All plugins I add here will come with the proper link associated with it.
 
 | Plugin | Author | Original Link | Filename | Download |
 | --- | --- | --- | --- | --- |
-| Suicide | TheOldPlayeR | https://tshock.co/xf/index.php?resources/suicide.201/ | Suicide.dll | ttps://jbmagination.com/tshock/Suicide.dll |
+| Suicide | TheOldPlayeR | https://tshock.co/xf/index.php?resources/suicide.201/ | Suicide.dll | https://jbmagination.com/tshock/Suicide.dll |
 | Ghost Plugin (Vanish) | SirApples | https://tshock.co/xf/index.php?resources/ghost-plugin-vanish.217/ | GhostPlugin.dll | https://jbmagination.com/tshock/GhostPlugin.dll |
 | TeleportRequest | Ryozuki | https://tshock.co/xf/index.php?resources/teleportrequest.173/ | TeleportRequest.dll | https://jbmagination.com/tshock/TeleportRequest.dll |
 | OnlineAnnounce | Zaicon  | https://tshock.co/xf/index.php?resources/onlineannounce.8/ | OnlineAnnounceV2.dll | https://jbmagination.com/tshock/OnlineAnnounceV2.dll |
