@@ -10,3 +10,4 @@ All plugins I add here will come with the proper link associated with it.
 | Ghost Plugin (Vanish) | SirApples | https://tshock.co/xf/index.php?resources/ghost-plugin-vanish.217/ | GhostPlugin.dll | https://jbmagination.com/tshock/GhostPlugin.dll |
 | TeleportRequest | Ryozuki | https://tshock.co/xf/index.php?resources/teleportrequest.173/ | TeleportRequest.dll | https://jbmagination.com/tshock/TeleportRequest.dll |
 | OnlineAnnounce | Zaicon  | https://tshock.co/xf/index.php?resources/onlineannounce.8/ | OnlineAnnounceV2.dll | https://jbmagination.com/tshock/OnlineAnnounceV2.dll |
+| InfiniteChestsV3 | Zaicon | https://tshock.co/xf/index.php?resources/infinitechestsv3.195/ | InfiniteChestsV3.dll | https://jbmagination.com/tshock/InfiniteChestsV3.dll |
