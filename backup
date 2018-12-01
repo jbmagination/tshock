@@ -1,0 +1,164 @@
+#!/bin/sh
+
+##########################################################
+### Terraria Map & Server Log linux/unix backup script ###
+### Created by shortybsd                               ###
+##########################################################
+
+
+##########################################################
+### Edit server logs path, backup path, backup to      ###
+### directory and backup name                          ###
+##########################################################
+
+
+# Server logs path
+SERVERLOGSPATH="/home/username/tshock/tshock"
+# Server map backup path
+SERVERMAPBACKUPPATH="/home/username/tshock/tshock/backups"
+# Backup to this directory (this is where the zips go)
+BACKUPTODIR="/home/username/tshock/backup"
+# Name for your server backup zip(s)
+BACKUPNAME="ElementFarming"
+
+##########################################################
+# Do not edit anything below this                        #
+##########################################################
+
+ 
+# Date
+BACKUPDATE="date +%Y%m%d_%H%M%S"
+ 
+# Things to back (extensions to map backups and server logs)
+SERVERMAPBACKUP="${SERVERMAPBACKUPPATH}/*.bak"
+SERVERLOGS="${SERVERLOGSPATH}/*.log"
+ 
+show_menu(){
+    NORMAL=`echo "\033[m"`
+    MENU=`echo "\033[36m"` #Blue
+    NUMBER=`echo "\033[33m"` #yellow
+    FGRED=`echo "\033[41m"`
+    RED_TEXT=`echo "\033[31m"`
+    ENTER_LINE=`echo "\033[33m"`
+    echo -e "${MENU}---------------------------------------------------------${NORMAL}"
+    echo -e "${MENU}--- Terraria Server Map and Logs Backup by: shortybsd ---${NORMAL}"
+    echo -e "${MENU}---------------------------------------------------------${NORMAL}"
+    echo -e "${MENU}-- ${NUMBER} 1)${MENU} Backup Server Maps ${NORMAL}"
+    echo -e "${MENU}-- ${NUMBER} 2)${MENU} Backup Server Logs (do not run while server is running!) ${NORMAL}"
+    echo -e "${MENU}-- ${NUMBER} 3)${MENU} Exit ${NORMAL}"
+    echo -e "${MENU}---------------------------------------------------------${NORMAL}"
+    echo -e "${ENTER_LINE}Please enter a menu option and hit enter or ${RED_TEXT}hit enter to exit. ${NORMAL}"
+    read opt
+}
+function option_picked() {
+    COLOR='\033[01;31m' # bold red
+    RESET='\033[00;00m' # normal white
+    MESSAGE=${@:-"${RESET}Error: No message passed"}
+    echo -e "${COLOR}${MESSAGE}${RESET}"
+}
+ 
+function pause(){
+  read -p "$*"
+}
+ 
+clear
+show_menu
+while [ opt != '' ]
+    do
+    if [[ $opt = "" ]]; then
+            exit;
+    else
+        case $opt in
+        1) clear;
+        option_picked "Backing up Server Maps selected";
+        printf '\033[32mNow checking directories if they exist \033[m\n'
+        # Check for backup directory and server map backup path
+        if [[ -d "${BACKUPTODIR}" && -d "${SERVERMAPBACKUPPATH}" ]]; then
+          printf '\033[32mNow backing up Server Maps \033[m\n'
+          # Create zip files for backup map
+          zip -r ${BACKUPTODIR}/$(${BACKUPDATE})-${BACKUPNAME}-Maps.zip ${SERVERMAPBACKUP}
+          printf '\033[32mBacked up Server Maps successfully \033[m\n'
+          # Remove Server Logs
+          printf '\033[31mNow removing Server Map Backups \033[m\n'
+          rm -fv ${SERVERMAPBACKUPPATH}/*.bak
+        else
+        if [ -d "${BACKUPTODIR}" ]; then
+          printf "\033[32m${BACKUPTODIR} exists \033[m\n"
+        else
+          printf "\033[31m${BACKUPTODIR} does not exist! \033[m\n"
+        fi
+        if [ -d "${SERVERMAPBACKUPPATH}" ]; then
+          printf "\033[32m${SERVERMAPBACKUPPATH} exists \033[m\n"
+        else
+          printf "\033[31m${SERVERMAPBACKUPPATH} does not exist! \033[m\n"
+        fi
+          printf "\033[33mPlease fix the error(s) above then re-run script. \033[m\n"
+          printf '\033[34m \033[m\n\n'
+          exit
+        fi
+          printf '\033[34m \033[m\n\n'
+          printf '\033[34m------------------------------------------ \033[m\n'
+          printf '\033[34m--- Terraria Server Map and Log Backup --- \033[m\n'
+          printf '\033[34m---        created by shortybsd        --- \033[m\n'
+          printf '\033[34m------------------------------------------ \033[m\n'
+          pause 'Press [Enter] key to continue...'
+          clear;
+          #exit
+          show_menu;
+          ;;
+ 
+        2) clear;
+        option_picked "Backing up Server Logs selected";
+        # Backup Server Logs
+        printf '\033[32mNow checking Server Log directories if they exist \033[m\n'
+        if [[ -d "${BACKUPTODIR}" && -d "${SERVERLOGSPATH}" ]]; then
+          printf '\033[32mNow backing up all Server Logs \033[m\n'
+          # Create zip files for all server logs
+          zip -r ${BACKUPTODIR}/$(${BACKUPDATE})-${BACKUPNAME}-Logs.zip ${SERVERLOGS} ServerLog.txt
+          printf '\033[32mBacked up all Server Logs successfully \033[m\n'
+          # Remove Server Logs & ServerLog.txt
+          printf '\033[31mNow removing Server Logs \033[m\n'
+          rm -fv ${SERVERLOGSPATH}/*.log
+          printf '\033[31mNow removing ServerLog.txt \033[m\n'
+          rm -fv ServerLog.txt
+        else
+        if [ -d "${BACKUPTODIR}" ]; then
+          printf "\033[32m${BACKUPTODIR} exists \033[m\n"
+        else
+          printf "\033[31m${BACKUPTODIR} does not exist! \033[m\n"
+        fi
+        if [ -d "${SERVERLOGSPATH}" ]; then
+          printf "\033[32m${SERVERLOGSPATH} exists \033[m\n"
+        else
+          printf "\033[31m${SERVERLOGSPATH} does not exist! \033[m\n"
+        fi
+          printf "\033[33mPlease fix the error(s) above then re-run script. \033[m\n"
+        exit
+        fi
+        printf '\033[34m \033[m\n\n'
+        printf '\033[34m------------------------------------------ \033[m\n'
+        printf '\033[34m--- Terraria Server Map and Log Backup --- \033[m\n'
+        printf '\033[34m---        created by shortybsd        --- \033[m\n'
+        printf '\033[34m------------------------------------------ \033[m\n'
+        #exit
+        pause 'Press [Enter] key to continue...'
+        clear;
+        show_menu;
+        ;;
+ 
+        3) clear;
+            option_picked "Exit selected";
+            printf '\033[34m------------------------------------------ \033[m\n'
+            printf '\033[34m--- Terraria Server Map and Log Backup --- \033[m\n'
+            printf '\033[34m---        created by shortybsd        --- \033[m\n'
+            printf '\033[34m------------------------------------------ \033[m\n'
+            exit
+            ;;
+ 
+        *)clear;
+        option_picked "Pick an option from the menu";
+        show_menu;
+        ;;
+    esac
+fi
+done
