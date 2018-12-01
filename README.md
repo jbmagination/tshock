@@ -4,9 +4,9 @@ The repository I use for whenever plugins don't have a download on GitHub. This 
 All plugins I add here will come with the proper link associated with it.
 
 
-| Plugin | Original Link | Download |
-| --- | --- | --- |
-| Suicide | https://tshock.co/xf/index.php?resources/suicide.201/ | n/a |
-| Ghost Plugin (Vanish) | https://tshock.co/xf/index.php?resources/ghost-plugin-vanish.217/ | n/a |
-| TeleportRequest | https://tshock.co/xf/index.php?resources/teleportrequest.173/ | n/a |
-| OnlineAnnounce | https://tshock.co/xf/index.php?resources/onlineannounce.8/ | n/a |
+| Plugin | Author | Original Link | Filename | Download |
+| --- | --- | --- | --- | --- |
+| Suicide | TheOldPlayeR | https://tshock.co/xf/index.php?resources/suicide.201/ | Suicide.dll | ttps://jbmagination.com/tshock/Suicide.dll |
+| Ghost Plugin (Vanish) | SirApples | https://tshock.co/xf/index.php?resources/ghost-plugin-vanish.217/ | GhostPlugin.dll | https://jbmagination.com/tshock/GhostPlugin.dll |
+| TeleportRequest | Ryozuki | https://tshock.co/xf/index.php?resources/teleportrequest.173/ | TeleportRequest.dll | https://jbmagination.com/tshock/TeleportRequest.dll |
+| OnlineAnnounce | Zaicon  | https://tshock.co/xf/index.php?resources/onlineannounce.8/ | OnlineAnnounceV2.dll | https://jbmagination.com/tshock/OnlineAnnounceV2.dll |
